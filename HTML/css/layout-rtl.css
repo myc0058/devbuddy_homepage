@@ -31,13 +31,13 @@ html, html a, body {
 }
 
 body {
-  font-family: Hind, sans-serif;
+  font-family: Noto Sans KR, sans-serif;
 }
 
 p {
   font-size: 15px;
   font-weight: 400;
-  font-family: Hind, sans-serif;
+  font-family: Noto Sans KR, sans-serif;
   color: #a6a7aa;
   line-height: 1.4;
   margin-bottom: 15px;
@@ -48,12 +48,12 @@ li,
 li a {
   font-size: 16px;
   font-weight: 500;
-  font-family: Hind, sans-serif;
+  font-family: Noto Sans KR, sans-serif;
   color: #515769;
 }
 
 a {
-  font-family: Hind, sans-serif;
+  font-family: Noto Sans KR, sans-serif;
   color: #81848f;
   outline: 0;
 }
@@ -67,7 +67,7 @@ a:focus, a:hover, a:active {
   position: relative;
   font-size: 13px;
   font-weight: 600;
-  font-family: Hind, sans-serif;
+  font-family: Noto Sans KR, sans-serif;
   text-transform: uppercase;
 }
 .link:after {
@@ -83,13 +83,13 @@ a:focus, a:hover, a:active {
 span {
   font-size: 14px;
   font-weight: 400;
-  font-family: Hind, sans-serif;
+  font-family: Noto Sans KR, sans-serif;
   color: #bfc1c7;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
-  font-family: Hind, sans-serif;
+  font-family: Noto Sans KR, sans-serif;
   color: #515769;
   line-height: 1.4;
   margin: 0 0 15px;
@@ -168,7 +168,7 @@ h4 {
   position: relative;
   font-size: 17px;
   font-weight: 400;
-  font-family: Hind, sans-serif;
+  font-family: Noto Sans KR, sans-serif;
   color: #a6a7aa;
   line-height: 1.4;
   border-right: none;
@@ -623,7 +623,7 @@ h4 {
   display: block;
   font-size: 13px;
   font-weight: 600;
-  font-family: Hind, sans-serif;
+  font-family: Noto Sans KR, sans-serif;
   color: #fff;
   text-transform: uppercase;
   line-height: 55px;
@@ -911,6 +911,14 @@ h4 {
   font-weight: 700;
   color: #fff;
   line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.carousel-text {
+  font-size: 20px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.4;
   text-transform: uppercase;
 }
 
