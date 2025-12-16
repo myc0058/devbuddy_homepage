@@ -103,8 +103,5 @@ function watch(cb) {
 // Lets us type "gulp" on the command line and run all of our tasks
 gulp.task('default', gulp.series(sassCompile, minifyCSS, rtlConvert, minifyJS, validateHTML, watch));
 
-// Production task - build all and prepare for deployment
-gulp.task('prod', gulp.series(sassCompile, minifyCSS, rtlConvert, minifyJS, validateHTML, buildDist));
-
 // This handles watching and running tasks
 gulp.task('watch', watch);
