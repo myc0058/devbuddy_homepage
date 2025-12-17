@@ -2,6 +2,9 @@
   	[Work]
 ------------------------------------------------------------------*/
 
+@use '../variables' as *;
+@use '../mixins' as *;
+
 .work {
 	position: relative;
 	

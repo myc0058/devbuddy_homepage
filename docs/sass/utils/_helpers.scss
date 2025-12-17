@@ -2,6 +2,9 @@
     [Row]
 ------------------------------------------------------------------*/
 
+@use '../variables' as *;
+@use '../mixins' as *;
+
 .row-space-1 {
     margin-right: -1px;
     margin-left: -1px;

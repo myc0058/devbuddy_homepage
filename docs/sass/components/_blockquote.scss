@@ -2,6 +2,9 @@
   	[Blockquote]
 ------------------------------------------------------------------*/
 
+@use '../variables' as *;
+@use '../mixins' as *;
+
 .blockquote {
 	position: relative;
 	@include font($size: 17px, $weight: 400, $family: $font-family-base);

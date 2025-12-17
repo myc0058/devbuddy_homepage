@@ -2,6 +2,9 @@
   	[Button]
 ------------------------------------------------------------------*/
 
+@use '../variables' as *;
+@use '../mixins' as *;
+
 .btn-theme {
 	@include button();
 }

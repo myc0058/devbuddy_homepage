@@ -2,6 +2,9 @@
     [Masonry Grid]
 ----------------------------------------------------*/
 
+@use '../variables' as *;
+@use '../mixins' as *;
+
 .masonry-grid {
     position: relative;
     @include clearfix;

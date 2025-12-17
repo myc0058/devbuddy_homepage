@@ -2,6 +2,9 @@
   	[Pricing]
 ------------------------------------------------------------------*/
 
+@use '../variables' as *;
+@use '../mixins' as *;
+
 .pricing {
 	padding: 70px 45px;
 	background: $color-white;

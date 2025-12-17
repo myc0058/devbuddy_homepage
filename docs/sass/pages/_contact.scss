@@ -2,6 +2,9 @@
   	[Contact]
 ------------------------------------------------------------------*/
 
+@use '../variables' as *;
+@use '../mixins' as *;
+
 .contact-list {
 	> li {
 		@include font($size: 13px);

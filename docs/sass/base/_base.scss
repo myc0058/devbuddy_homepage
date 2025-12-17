@@ -3,6 +3,9 @@
   		(colors, typography, margins & padding).]
 ------------------------------------------------------------------*/
 
+@use '../variables' as *;
+@use '../mixins' as *;
+
 html {
     overflow-x: hidden;
 }

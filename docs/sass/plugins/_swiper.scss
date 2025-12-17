@@ -2,6 +2,9 @@
     [Swiper Slider]
 ------------------------------------------------------------------*/
 
+@use '../variables' as *;
+@use '../mixins' as *;
+
 .swiper-slider {
 	@include position(relative);
 	@include size(100%);

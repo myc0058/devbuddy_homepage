@@ -17,57 +17,57 @@
 // Custom
 // =================================================================
 
-@import 'mixins'; // Mixins
-@import 'variables'; // Variables
+@use 'variables' as *; // Variables
+@use 'mixins' as *; // Mixins
 
 
 // Base
 // =================================================================
 
-@import 'base/base'; // Base
+@use 'base/base'; // Base
 
 
 // Components
 // =================================================================
 
-@import 'components/blockquote'; // Blockquote
-@import 'components/button'; // Button
+@use 'components/blockquote'; // Blockquote
+@use 'components/button'; // Button
 
 
 // Gui
 // =================================================================
 
-@import 'gui/pricing'; // Pricing
-@import 'gui/promo-section'; // Promo Section
-@import 'gui/service'; // Service
-@import 'gui/work'; // Work
+@use 'gui/pricing'; // Pricing
+@use 'gui/promo-section'; // Promo Section
+@use 'gui/service'; // Service
+@use 'gui/work'; // Work
 
 
 // Layout
 // =================================================================
 
-@import 'layout/footer'; // Footer
-@import 'layout/header'; // Header
+@use 'layout/footer'; // Footer
+@use 'layout/header'; // Header
 
 
 // Pages
 // =================================================================
 
-@import 'pages/contact'; // Contact
+@use 'pages/contact'; // Contact
 
 
 // Plugins
 // =================================================================
 
-@import 'plugins/back-to-top'; // Back To Top
-@import 'plugins/bootstrap-components'; // Bootstrap Components
-@import 'plugins/gmap'; // Google Map
-@import 'plugins/masonry'; // Masonry
-@import 'plugins/swiper'; // Swiper
+@use 'plugins/back-to-top'; // Back To Top
+@use 'plugins/bootstrap-components'; // Bootstrap Components
+@use 'plugins/gmap'; // Google Map
+@use 'plugins/masonry'; // Masonry
+@use 'plugins/swiper'; // Swiper
 
 
 // Utils
 // =================================================================
 
-@import 'utils/colors'; // Colors
-@import 'utils/helpers'; // Helpers
+@use 'utils/colors'; // Colors
+@use 'utils/helpers'; // Helpers

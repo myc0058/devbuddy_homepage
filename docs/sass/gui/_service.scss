@@ -2,6 +2,9 @@
   	[Service]
 ------------------------------------------------------------------*/
 
+@use '../variables' as *;
+@use '../mixins' as *;
+
 .service {
 	background: $color-white;
 	padding: 50px;

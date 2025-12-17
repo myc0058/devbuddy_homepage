@@ -5,13 +5,16 @@
 'use strict';
  
 var gulp 		= require('gulp'),
-	sass 		= require('gulp-sass')(require('sass')),
+	dartSass 	= require('sass'),
+	gulpSass 	= require('gulp-sass'),
 	cleanCSS 	= require('gulp-clean-css'),
 	rtlcss 		= require('gulp-rtlcss'),
 	rename 		= require('gulp-rename'),
 	uglify 		= require('gulp-uglify'),
 	pump 		= require('pump'),
 	htmlhint  	= require('gulp-htmlhint');
+
+const sass = gulpSass(dartSass);
 
 
 // Gulp plumber error handler
@@ -28,7 +31,10 @@ function errorLog(error) {
 // Sass - Compile Sass files into CSS
 function sassCompile(cb) {
 	return gulp.src('../docs/sass/**/*.scss')
-		.pipe(sass({ outputStyle: 'expanded' }))
+		.pipe(sass.sync({
+			outputStyle: 'expanded',
+			silenceDeprecations: ['legacy-js-api']
+		}))
 		.on('error', sass.logError)
 		.pipe(gulp.dest('../docs/css/'));
 }
@@ -80,7 +86,7 @@ function minifyJS(cb) {
 
 // Htmlhint - Validate HTML
 function validateHTML(cb) {
-	return gulp.src('../docs/*.html')
+	return gulp.src(['../docs/*.html', '!../docs/naver0874a19600a0ac3c7a358d1079f988b8.html'])
 		.pipe(htmlhint())
 		.pipe(htmlhint.reporter())
 	  	.pipe(htmlhint.failReporter({ suppress: true }))

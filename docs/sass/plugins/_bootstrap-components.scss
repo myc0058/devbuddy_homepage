@@ -2,6 +2,9 @@
   	[Form Control]
 ------------------------------------------------------------------*/
 
+@use '../variables' as *;
+@use '../mixins' as *;
+
 .form-control {
 	height: 50px;
     @include font($size: 14px, $weight: 400);

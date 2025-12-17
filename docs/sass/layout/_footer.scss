@@ -2,6 +2,9 @@
   	[Footer]
 ------------------------------------------------------------------*/
 
+@use '../variables' as *;
+@use '../mixins' as *;
+
 .footer {
 	background: url(../img/1920x1080/footer-bg.jpg) no-repeat;
     background-size: cover;

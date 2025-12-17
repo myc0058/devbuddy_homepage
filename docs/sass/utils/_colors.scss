@@ -2,6 +2,8 @@
   	[Text Colors]
 ------------------------------------------------------------------*/
 
+@use '../variables' as *;
+
 .color-base { color: $color-base; }
 .color-white { color: $color-white; }
 .color-heading { color: $color-heading; }

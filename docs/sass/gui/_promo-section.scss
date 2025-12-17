@@ -2,6 +2,9 @@
   	[Promo Section]
 ------------------------------------------------------------------*/
 
+@use '../variables' as *;
+@use '../mixins' as *;
+
 .promo-section {
 	@media (max-width: $screen-sm-max) {
 		.promo-section-col {

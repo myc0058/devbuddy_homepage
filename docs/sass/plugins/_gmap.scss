@@ -2,6 +2,9 @@
   Custome Style of Info Window
 ------------------------------------*/
 
+@use '../variables' as *;
+@use '../mixins' as *;
+
 /* White background and box outline */
 .gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div {
   background-color: $color-white !important;
