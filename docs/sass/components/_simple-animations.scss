@@ -34,3 +34,100 @@
         width: 100%;
     }
 }
+
+// Background Animation - Floating Shapes
+body {
+    position: relative;
+    background: #ffffff;
+    overflow-x: hidden;
+}
+
+.animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+
+    .shape {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(60px);
+        opacity: 0.4;
+
+        &.shape-1 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.4), rgba(41, 128, 185, 0.2));
+            top: -100px;
+            left: -100px;
+            animation: float1 8s ease-in-out infinite;
+        }
+
+        &.shape-2 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(155, 89, 182, 0.35), rgba(142, 68, 173, 0.2));
+            top: 50%;
+            right: -150px;
+            animation: float2 10s ease-in-out infinite;
+        }
+
+        &.shape-3 {
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.35), rgba(39, 174, 96, 0.2));
+            bottom: -100px;
+            left: 30%;
+            animation: float3 12s ease-in-out infinite;
+        }
+
+        &.shape-4 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(241, 196, 15, 0.3), rgba(230, 126, 34, 0.2));
+            top: 20%;
+            right: 20%;
+            animation: float4 9s ease-in-out infinite;
+        }
+    }
+}
+
+@keyframes float1 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(100px, 100px) scale(1.2);
+    }
+}
+
+@keyframes float2 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(-80px, -120px) scale(1.3);
+    }
+}
+
+@keyframes float3 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(120px, -80px) scale(1.15);
+    }
+}
+
+@keyframes float4 {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+    50% {
+        transform: translate(-100px, 100px) rotate(180deg) scale(1.25);
+    }
+}
