@@ -447,6 +447,25 @@ body {
     transform: translate(-100px, 100px) rotate(180deg) scale(1.25);
   }
 }
+#particle-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.3;
+}
+#particle-background canvas {
+  display: block;
+}
+
+body {
+  position: relative;
+  z-index: 1;
+}
+
 /*----------------------------------------------------------------------
 
 	MASTER STYLESHEET

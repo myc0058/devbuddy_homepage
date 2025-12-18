@@ -106,6 +106,8 @@ function watch(cb) {
     gulp.watch('../docs/*.html', validateHTML);
 }
 
+gulp.task('build', gulp.series(sassCompile, minifyCSS, rtlConvert, minifyJS, validateHTML));
+
 // Lets us type "gulp" on the command line and run all of our tasks
 gulp.task('default', gulp.series(sassCompile, minifyCSS, rtlConvert, minifyJS, validateHTML, watch));
 

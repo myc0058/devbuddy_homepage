@@ -63,16 +63,11 @@
 <!-- BODY -->
 
 <body>
+    <!-- Particle Animation Background -->
+    <div id="particle-background"></div>
+
     <!-- Progress Bar -->
     <div class="progress-bar-animated" id="progressBar"></div>
-
-    <!-- Animated Background -->
-    <div class="animated-bg">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-        <div class="shape shape-4"></div>
-    </div>
 
     <!--========== HEADER ==========-->
     <header class="header navbar-fixed-top">
@@ -174,7 +169,6 @@
 
     <!--========== PAGE LAYOUT ==========-->
     <!-- Service -->
-
     <div class="content-lg container">
         <div class="row row-space-1 margin-b-2">
             <div class="col-sm-4 sm-margin-b-2">
@@ -558,6 +552,174 @@
 
     <!-- SIMPLE ANIMATIONS -->
     <script src="js/simple-animations.js" type="text/javascript"></script>
+
+    <!-- THREE.JS LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- PARTICLE ANIMATION BACKGROUND -->
+    <script type="text/javascript">
+        (function () {
+            var camera, scene, renderer,
+                container, particle,
+                winHalfX, winHalfY,
+                height, width, fieldOfView,
+                aspectRatio, nearPlane, farPlane,
+                cameraZ, material,
+                i = 0,
+                count = 0,
+                Tau = Math.PI * 2,
+                mouseX = 0,
+                mouseY = 0,
+                // Reduced particle count for subtle background effect
+                amtX = 25,
+                amtY = 25,
+                sep = 120,
+                particles = [];
+
+            function initParticleAnimation() {
+                container = document.getElementById('particle-background');
+                if (!container) return;
+
+                height = window.innerHeight;
+                winHalfY = height / 2;
+                width = window.innerWidth;
+                winHalfX = width / 2;
+                fieldOfView = 75;
+                aspectRatio = width / height;
+                nearPlane = 1;
+                farPlane = 10000;
+                cameraZ = 900;
+
+                rendererer(onRendererRenderered);
+            }
+
+            // renders the renderer
+            function rendererer(complete) {
+                camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);
+                camera.position.z = cameraZ;
+
+                scene = new THREE.Scene();
+
+                // Create particle material with lighter color for subtle effect
+                var canvas = document.createElement('canvas');
+                canvas.width = 16;
+                canvas.height = 16;
+                var ctx = canvas.getContext('2d');
+                ctx.fillStyle = '#666666'; // Lighter gray instead of black
+                ctx.beginPath();
+                ctx.arc(8, 8, 8, 0, Tau, true);
+                ctx.fill();
+
+                var texture = new THREE.CanvasTexture(canvas);
+                material = new THREE.SpriteMaterial({
+                    map: texture,
+                    color: 0x666666,
+                    opacity: 0.4 // Reduced opacity
+                });
+
+                // Create particles
+                for (var ix = 0, lx = amtX; ix < lx; ix++) {
+                    for (var iy = 0, ly = amtY; iy < ly; iy++) {
+                        particle = particles[i++] = new THREE.Sprite(material);
+                        particle.position.x = ix * sep - ((amtX * sep) / 2);
+                        particle.position.z = iy * sep - ((amtY * sep) / 2);
+                        scene.add(particle);
+                    }
+                }
+
+                renderer = new THREE.WebGLRenderer({
+                    antialias: true,
+                    alpha: true
+                });
+                renderer.setClearColor(0xffffff, 0); // Transparent background
+                renderer.setPixelRatio(window.devicePixelRatio);
+                renderer.setSize(width, height);
+
+                container.appendChild(renderer.domElement);
+
+                if (complete) {
+                    complete();
+                }
+            }
+
+            function onRendererRenderered() {
+                // Mouse and touch interaction for interactive effect
+                document.addEventListener('mousemove', onDocumentMouseMove);
+                document.addEventListener('touchstart', onDocumentTouchStart);
+                document.addEventListener('touchmove', onDocumentTouchMove);
+                window.addEventListener('resize', onWindowResize);
+
+                animate();
+            }
+
+            function onDocumentMouseMove(e) {
+                // Mouse sensitivity for interactive effect
+                mouseX = e.clientX - winHalfX;
+                mouseY = e.clientY - winHalfY;
+            }
+
+            function onDocumentTouchStart(e) {
+                if (e.touches.length === 1) {
+                    e.preventDefault();
+                    mouseX = e.touches[0].pageX - winHalfX;
+                    mouseY = e.touches[0].pageY - winHalfY;
+                }
+            }
+
+            function onDocumentTouchMove(e) {
+                if (e.touches.length === 1) {
+                    e.preventDefault();
+                    mouseX = e.touches[0].pageX - winHalfX;
+                    mouseY = e.touches[0].pageY - winHalfY;
+                }
+            }
+
+            function onWindowResize() {
+                if (!container) return;
+
+                height = window.innerHeight;
+                winHalfY = height / 2;
+                width = window.innerWidth;
+                winHalfX = width / 2;
+
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                renderer.setSize(width, height);
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+                update();
+            }
+
+            function update() {
+                // Smooth camera movement following mouse
+                camera.position.x += (mouseX - camera.position.x) * 0.05;
+                camera.position.y += (-mouseY - camera.position.y) * 0.05;
+                camera.lookAt(scene.position);
+
+                i = 0;
+                for (var ix = 0, lx = amtX; ix < lx; ix++) {
+                    for (var iy = 0, ly = amtY; iy < ly; iy++) {
+                        particle = particles[i++];
+                        // Reduced wave amplitude and slower animation
+                        particle.position.y = (Math.sin((ix + count) * 0.2) * 30) + (Math.sin((iy + count) * 0.3) * 30);
+                        particle.scale.x = particle.scale.y = (Math.sin((ix + count) * 0.2) + 1) * 2 + (Math.sin((iy + count) * 0.3) + 1) * 2;
+                    }
+                }
+
+                renderer.render(scene, camera);
+                count += 0.05; // Slower animation speed
+            }
+
+            // Initialize when page loads
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initParticleAnimation);
+            } else {
+                initParticleAnimation();
+            }
+        })();
+    </script>
 </body>
 <!-- END BODY -->
 
