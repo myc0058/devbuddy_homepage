@@ -313,6 +313,21 @@ h4 {
   padding: 15px 30px;
 }
 
+.btn-ai-consult {
+  font-size: 22px;
+  font-weight: 700;
+  padding: 22px 46px;
+  border-radius: 999px;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  box-shadow: 0 20px 35px rgba(23, 190, 210, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-ai-consult:hover, .btn-ai-consult:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 25px 40px rgba(23, 190, 210, 0.35);
+}
+
 /*----------------------------------------------------------------------
 
 	MASTER STYLESHEET
@@ -1718,3 +1733,5 @@ h4 {
 .height-400 {
   height: 400px !important;
 }
+
+/*# sourceMappingURL=layout.css.map */

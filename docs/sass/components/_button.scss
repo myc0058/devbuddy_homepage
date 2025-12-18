@@ -24,3 +24,18 @@
 .btn-theme-sm {
 	@include button-size(13px, 600, 15px 30px);
 }
+
+.btn-ai-consult {
+	@include button-size(22px, 700, 22px 46px);
+	border-radius: 999px;
+	letter-spacing: -0.01em;
+	text-transform: none;
+	box-shadow: 0 20px 35px rgba(23, 190, 210, 0.25);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+	&:hover,
+	&:focus {
+		transform: translateY(-2px);
+		box-shadow: 0 25px 40px rgba(23, 190, 210, 0.35);
+	}
+}
