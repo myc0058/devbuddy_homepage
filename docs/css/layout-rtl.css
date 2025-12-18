@@ -313,6 +313,53 @@ h4 {
   padding: 15px 30px;
 }
 
+.btn-ai-consult {
+  font-size: 22px;
+  font-weight: 700;
+  padding: 22px 46px;
+  border-radius: 999px;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  box-shadow: 0 20px 35px rgba(23, 190, 210, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-ai-consult:hover, .btn-ai-consult:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 25px 40px rgba(23, 190, 210, 0.35);
+}
+
+/*----------------------------------------------------------------------
+    Simple Animations - Progress Bar & Navigation
+-----------------------------------------------------------------------*/
+.progress-bar-animated {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(-90deg, #3498db, #9b59b6, #e74c3c);
+  z-index: 9999;
+  transition: width 0.2s ease;
+}
+
+.nav-item-child {
+  position: relative;
+  transition: color 0.3s ease;
+}
+.nav-item-child::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  right: 50%;
+  width: 0;
+  height: 2px;
+  background: #3498db;
+  transition: all 0.3s ease;
+  transform: translateX(50%);
+}
+.nav-item-child:hover::after {
+  width: 100%;
+}
+
 /*----------------------------------------------------------------------
 
 	MASTER STYLESHEET

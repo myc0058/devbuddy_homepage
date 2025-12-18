@@ -329,6 +329,38 @@ h4 {
 }
 
 /*----------------------------------------------------------------------
+    Simple Animations - Progress Bar & Navigation
+-----------------------------------------------------------------------*/
+.progress-bar-animated {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3498db, #9b59b6, #e74c3c);
+  z-index: 9999;
+  transition: width 0.2s ease;
+}
+
+.nav-item-child {
+  position: relative;
+  transition: color 0.3s ease;
+}
+.nav-item-child::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #3498db;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+.nav-item-child:hover::after {
+  width: 100%;
+}
+
+/*----------------------------------------------------------------------
 
 	MASTER STYLESHEET
 
@@ -1733,5 +1765,3 @@ h4 {
 .height-400 {
   height: 400px !important;
 }
-
-/*# sourceMappingURL=layout.css.map */

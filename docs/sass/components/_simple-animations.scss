@@ -1,0 +1,36 @@
+/*----------------------------------------------------------------------
+    Simple Animations - Progress Bar & Navigation
+-----------------------------------------------------------------------*/
+
+// Progress Bar Animation
+.progress-bar-animated {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #3498db, #9b59b6, #e74c3c);
+    z-index: 9999;
+    transition: width 0.2s ease;
+}
+
+// Nav Item Animation
+.nav-item-child {
+    position: relative;
+    transition: color 0.3s ease;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: #3498db;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+
+    &:hover::after {
+        width: 100%;
+    }
+}
